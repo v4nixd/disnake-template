@@ -22,11 +22,33 @@ It focuses on eliminating repetitive setup while keeping the codebase clean, ext
 
 ## Useful commands
 
-```bash
-uv tool run ruff check
-uv tool run ruff format
-```
+install dependencies
 
 ```bash
-uv tool run isort .
+uv sync
+```
+
+run bot
+
+```bash
+uv run -m src.main
+```
+
+ruff
+
+```bash
+uv run ruff check
+uv run ruff format
+```
+
+isort
+
+```bash
+uv run isort .
+```
+
+pyright
+
+```bash
+uv run pyright
 ```
