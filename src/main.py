@@ -1,8 +1,12 @@
+from src.bot import Bot
+from src.config import Config
+
+
 class Main:
-    instance = None
+    instance: Main | None = None
 
     def __init__(self) -> None:
-        print("Main initialized")
+        self.bot = Bot(reload=True)
 
     @staticmethod
     def get_instance() -> Main:
@@ -13,3 +17,7 @@ class Main:
 
 if __name__ == "__main__":
     main = Main.get_instance()
+    bot = main.bot.client
+    config = Config.get_instance()
+    TOKEN = config.get_env_var("DISCORD_TOKEN")
+    bot.run(TOKEN)
