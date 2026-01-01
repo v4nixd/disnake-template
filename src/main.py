@@ -1,5 +1,6 @@
 from src.bot import Bot
 from src.config import Config
+from src.utils import Utils
 
 
 class Main:
@@ -20,4 +21,5 @@ if __name__ == "__main__":
     bot = main.bot.client
     config = Config.get_instance()
     TOKEN = config.get_env_var("DISCORD_TOKEN")
+    Utils.load_cogs(bot)
     bot.run(TOKEN)
