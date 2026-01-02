@@ -1,0 +1,5 @@
+bot:
+  activity:
+    status: "idle"
+    name: "🚧 Under active development"
+    type: "playing"

@@ -1,4 +1,7 @@
+from disnake import Activity, ActivityType, Status
 from disnake.ext import commands
+
+from src.config import Config
 
 
 class Utils:
@@ -7,3 +10,16 @@ class Utils:
         print("Loading cogs")
         bot.load_extensions("src/cogs/events")
         print("Cogs loaded")
+
+    @staticmethod
+    async def update_presence(bot: commands.InteractionBot) -> None:
+        config = Config.get_instance().get_config()
+        activity = config["bot"]["activity"]
+
+        await bot.change_presence(
+            activity=Activity(
+                type=ActivityType[activity["type"]],
+                name=activity["name"]
+            ),
+            status=Status[activity["status"]]
+        )

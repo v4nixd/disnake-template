@@ -16,7 +16,7 @@ class Config:
 
         assert os.path.exists(Config.CONFIG_FILE)
 
-        with open(Config.CONFIG_FILE, "r") as f:
+        with open(Config.CONFIG_FILE, "r", encoding="utf-8") as f:
             self.config = yaml.safe_load(f)
 
     @staticmethod
