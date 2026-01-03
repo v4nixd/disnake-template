@@ -9,6 +9,7 @@ class Utils:
     def load_cogs(bot: commands.InteractionBot) -> None:
         print("Loading cogs")
         bot.load_extensions("src/cogs/events")
+        bot.load_extensions("src/cogs/commands")
         print("Cogs loaded")
 
     @staticmethod
@@ -18,8 +19,7 @@ class Utils:
 
         await bot.change_presence(
             activity=Activity(
-                type=ActivityType[activity["type"]],
-                name=activity["name"]
+                type=ActivityType[activity["type"]], name=activity["name"]
             ),
-            status=Status[activity["status"]]
+            status=Status[activity["status"]],
         )
